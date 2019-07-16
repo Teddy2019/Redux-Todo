@@ -9,7 +9,10 @@ import React from 'react'
     }
 
     return(
-        <li className='TaskList' onClick={clickHandeler} >{props.task.value}</li>
+        <div>
+           <li className='TaskList' onClick={clickHandeler} >{props.task.value}</li>
+           <button>Delete</button>
+        </div>
     )
 }
 

@@ -15,14 +15,16 @@ export default function(state = intialstate, action) {
 
       case TOGGLE_COMPLETED:
         const id = action.payload
-        if(state.tasks[id].completed === state.tasks[id].completed){
-          return {
-           ...state,
-           tasks: [...state.tasks, state.tasks[id].completed = !state.tasks[id].completed]
-          }
-        }
-        break;
+        const newstate = state.tasks.map((task, inedx) => {
+          if(inedx === id){return {...task, completed: !task.completed}}
+          else { return task}
+        })
 
+        return {
+          ...state,
+          tasks: newstate
+         }
+       
       default:
           return state
   }
