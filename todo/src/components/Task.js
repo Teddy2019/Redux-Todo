@@ -3,15 +3,20 @@ import React from 'react'
 
  function Task(props){
 
-    const clickHandeler = (e) => {
+    const toggleHandelr = (e) => {
         e.preventDefault();
         props.togglecompleted(props.index)
     }
 
+    const deleteHandelr = (e) =>{
+        e.preventDefault();
+        props.deleteTodo(props.index)
+    }
+
     return(
         <div>
-           <li className='TaskList' onClick={clickHandeler} >{props.task.value}</li>
-           <button>Delete</button>
+           <li className='TaskList' onClick={toggleHandelr} >{props.task.value}</li>
+           <button type='button' onClick={deleteHandelr} >Delete</button>
         </div>
     )
 }
